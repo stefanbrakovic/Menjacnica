@@ -27,7 +27,9 @@ public class Valuta {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if (name == "") {
+			throw new RuntimeException("You must enter the name");
+		}else this.name = name;
 	}
 
 	public String getShortName() {
@@ -35,7 +37,9 @@ public class Valuta {
 	}
 
 	public void setShortName(String shortName) {
-		this.shortName = shortName;
+		if (shortName == "") {
+			throw new RuntimeException("You must enter the shortName");
+		}else this.shortName = shortName;
 	}
 
 	public GregorianCalendar getDate() {
@@ -43,7 +47,9 @@ public class Valuta {
 	}
 
 	public void setDate(GregorianCalendar date) {
-		this.date = date;
+		if (date == null) {
+			throw new RuntimeException("You must enter the date");
+		}else this.date = date;
 	}
 
 	public double getSellPrice() {
@@ -51,6 +57,9 @@ public class Valuta {
 	}
 
 	public void setSellPrice(double sellPrice) {
+		if (sellPrice < 0) {
+			throw new RuntimeException("Price must be positive!");
+		}
 		this.sellPrice = sellPrice;
 	}
 
@@ -59,6 +68,9 @@ public class Valuta {
 	}
 
 	public void setBuyPrice(double buyPrice) {
+		if (buyPrice < 0) {
+			throw new RuntimeException("Price must be positive!");
+		}
 		this.buyPrice = buyPrice;
 	}
 
@@ -67,6 +79,9 @@ public class Valuta {
 	}
 
 	public void setMiddlePrice(double middlePrice) {
+		if (middlePrice < 0) {
+			throw new RuntimeException("Price must be positive!");
+		}
 		this.middlePrice = middlePrice;
 	}
 

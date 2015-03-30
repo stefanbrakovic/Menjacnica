@@ -7,18 +7,28 @@ import interfacePackage.Menjacnica;
 public class ZaInpleamantInterface implements Menjacnica {
 
 	public void newCourse(GregorianCalendar date) {
-		// TODO Auto-generated method stub
+		menjacnica.Menjacnica.valute.add(null);
 
 	}
 
 	public void deleteCourse(GregorianCalendar date) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < menjacnica.Menjacnica.valute.size(); i++) {
+			if (menjacnica.Menjacnica.valute.get(i).getDate().equals(date)) {
+				menjacnica.Menjacnica.valute.remove(i);
+				return;
+			}
+		}
+		
 
 	}
 
 	public double returnCourse(String name, GregorianCalendar date) {
-		// TODO Auto-generated method stub
-		return 0;
+		for (int i = 0; i < menjacnica.Menjacnica.valute.size(); i++){
+			if (menjacnica.Menjacnica.valute.get(i).getDate().equals(date) && 
+					menjacnica.Menjacnica.valute.get(i).getName().equals(name))
+				return menjacnica.Menjacnica.valute.get(i).getMiddlePrice();
+		}
+		return -1;
 	}
 
 }
